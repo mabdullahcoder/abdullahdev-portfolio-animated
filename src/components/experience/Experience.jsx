@@ -39,8 +39,8 @@ export default function Experience({ projectShots = {} }) {
 
   return (
     <ExperienceProvider value={context}>
-      <main ref={trackRef} className="relative" style={{ height: `${(TOTAL_UNITS + 1) * 100}svh` }}>
-        <div className="sticky top-0 h-svh w-full overflow-hidden bg-space">
+      <main ref={trackRef} className="relative" style={{ height: `${(TOTAL_UNITS + 1) * 100}dvh` }}>
+        <div className="sticky top-0 h-dvh w-full overflow-hidden bg-space">
           <Starfield />
 
           <HeroScene />

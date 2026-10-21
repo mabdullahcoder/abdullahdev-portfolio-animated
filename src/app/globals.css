@@ -62,6 +62,9 @@
 html {
   background: var(--space);
   scrollbar-width: none;
+  /* Fix mobile viewport height */
+  min-height: 100vh;
+  min-height: 100dvh; /* Use dynamic viewport height on supported browsers */
 }
 
 html::-webkit-scrollbar {
@@ -73,6 +76,10 @@ body {
   color: var(--ink);
   font-family: var(--font-sans);
   overscroll-behavior-y: none;
+  /* Ensure body takes full viewport height on mobile */
+  min-height: 100vh;
+  min-height: 100dvh;
+  position: relative;
 }
 
 ::selection {
