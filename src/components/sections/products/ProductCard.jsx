@@ -27,7 +27,7 @@ export default function ProductCard({ product, index, count, shot }) {
       style={{ ...card, transformOrigin: "50% 0%" }}
       className={`absolute ${STAGE_Y} ${GUTTER_INSET}`}
     >
-      <div className="relative flex h-full flex-col overflow-hidden rounded-[var(--card-radius)] border border-ink/10 bg-card shadow-[0_50px_120px_-40px_rgba(0,0,0,0.95)] light:shadow-[0_40px_100px_-40px_rgba(20,30,70,0.35)] lg:grid lg:grid-cols-[minmax(0,0.9fr)_minmax(0,1.1fr)] short:grid short:grid-cols-[minmax(0,1fr)_minmax(0,1fr)]">
+      <div className="relative flex h-full flex-col overflow-hidden rounded-[var(--card-radius)] border border-ink/10 bg-card lg:grid lg:grid-cols-[minmax(0,0.9fr)_minmax(0,1.1fr)] short:grid short:grid-cols-[minmax(0,1fr)_minmax(0,1fr)]">
         {/* Ambient brand light, sheen and top edge highlight */}
         <div
           aria-hidden

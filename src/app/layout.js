@@ -14,8 +14,8 @@ const jetbrainsMono = JetBrains_Mono({
 });
 
 export const metadata = {
-  title: `${BRAND.name} — ${HERO.title.join(" ")}`,
-  description: "Full-stack developer with 1 year of experience building fast, modern web apps with React, Next.js and Node.js.",
+  title: `${BRAND.name} | ${HERO.title.join(" ")}`,
+  description: "Full Stack Developer with 1 year of experience building fast, modern web apps with React, Next.js and Node.js.",
 };
 
 export const viewport = {

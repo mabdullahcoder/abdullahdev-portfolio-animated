@@ -93,7 +93,7 @@ export default function PressCard({ item, index, count, pointer, variant = "floa
         style={{ opacity, scale, filter }}
         whileHover={{ y: -5 }}
         transition={{ type: "spring", stiffness: 320, damping: 24 }}
-        className={`group relative flex flex-col rounded-[clamp(10px,1vw,16px)] border border-white/[0.12] bg-[linear-gradient(180deg,rgba(255,255,255,0.13)_0%,rgba(255,255,255,0.05)_100%)] shadow-[inset_0_1px_0_rgba(255,255,255,0.14),0_24px_60px_-24px_rgba(0,0,0,0.85)] backdrop-blur-xl transition-[border-color,background-color] duration-300 focus-within:border-white/40 hover:border-white/30 light:border-black/[0.06] light:bg-[linear-gradient(180deg,rgba(255,255,255,0.94)_0%,rgba(255,255,255,0.78)_100%)] light:shadow-[inset_0_1px_0_rgba(255,255,255,0.9),0_24px_60px_-28px_rgba(20,30,70,0.35)] light:focus-within:border-black/30 light:hover:border-black/15 ${styles.size}`}
+        className={`group relative flex flex-col rounded-[clamp(10px,1vw,16px)] border border-white/[0.12] bg-[linear-gradient(180deg,rgba(255,255,255,0.13)_0%,rgba(255,255,255,0.05)_100%)] backdrop-blur-xl transition-[border-color,background-color] duration-300 focus-within:border-white/40 hover:border-white/30 light:border-black/[0.06] light:bg-[linear-gradient(180deg,rgba(255,255,255,0.94)_0%,rgba(255,255,255,0.78)_100%)] light:focus-within:border-black/30 light:hover:border-black/15 ${styles.size}`}
       >
         <header className="flex items-center gap-[0.7em]">
           <span

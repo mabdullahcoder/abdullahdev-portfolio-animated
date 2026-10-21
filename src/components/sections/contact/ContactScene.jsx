@@ -72,7 +72,7 @@ export default function ContactScene() {
             href={`mailto:${CONTACT.email}`}
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.96 }}
-            className="group flex items-center gap-[0.45em] rounded-full bg-ink px-[clamp(1.4rem,2.6vw,2.8rem)] py-[clamp(0.8rem,2.5svh,1.5rem)] text-[clamp(0.9rem,1.35vw,1.45rem)] leading-none text-space/60 shadow-[0_0_40px_rgba(255,255,255,0.18)] transition-colors hover:text-space light:shadow-[0_12px_40px_-12px_rgba(20,30,70,0.45)]"
+            className="group flex items-center gap-[0.45em] rounded-full bg-ink px-[clamp(1.4rem,2.6vw,2.8rem)] py-[clamp(0.8rem,2.5svh,1.5rem)] text-[clamp(0.9rem,1.35vw,1.45rem)] leading-none text-space/60 transition-colors hover:text-space"
           >
             {CONTACT.cta}
             <ArrowRight aria-hidden className="h-[1em] w-[1em] transition-transform duration-300 group-hover:translate-x-1" strokeWidth={1.75} />

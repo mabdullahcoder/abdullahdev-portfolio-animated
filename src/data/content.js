@@ -1,15 +1,15 @@
 export const BRAND = {
-  name: "AbdullahDev",
+  name: "Abdullah Developer",
 };
 
 export const HERO = {
   title: ["Building scalable", "web applications"],
-  subtitle: "I'm Abdullah, a full-stack developer specializing in React, Next.js & Node.js",
+  subtitle: "I'm Abdullah, a Full Stack Developer specializing in React, Next.js & Node.js",
   hint: "Scroll down to explore",
 };
 
 export const MISSION =
-  "One year into my career as a full-stack developer, I build fast, clean web apps with React, Next.js, Node.js and PostgreSQL — and I learn something new with every project I ship.";
+  "One year into my career as a Full Stack developer, I build fast, clean web apps with React, Next.js, Node.js and PostgreSQL — and I learn something new with every project I ship.";
 
 export const STATS = {
   users: {
@@ -33,5 +33,5 @@ export const PRESS_TITLE = ["What people", "say about me"];
 export const CONTACT = {
   title: ["Open to new", "opportunities"],
   cta: "Get in touch",
-  email: "hello@abdullahdev.com",
+  email: "mabdullah13954@gmail.com",
 };
