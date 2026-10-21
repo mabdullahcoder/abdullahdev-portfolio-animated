@@ -1,26 +1,122 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
+/* `light:` styles apply while <html data-theme="light"> is set. */
+@custom-variant light (&:where([data-theme="light"], [data-theme="light"] *));
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
+/* `short:` targets phones held sideways, where height (not width) is the constraint. */
+@custom-variant short (@media (orientation: landscape) and (max-height: 520px));
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+
+@utility no-scrollbar {
+  scrollbar-width: none;
+  &::-webkit-scrollbar {
+    display: none;
   }
 }
 
+/*
+ * Theme tokens. `ink` is the foreground (text, lines, glass tints), `space` the backdrop,
+ * `card` raised surfaces. Components use them as `text-ink/60`, `bg-space`, `bg-card`…
+ */
+:root {
+  --space: #030304;
+  --ink: #f5f5f6;
+  --card: #0a0b10;
+  --star-rgb: 255, 255, 255;
+  color-scheme: dark;
+
+  /*
+   * Layout tokens — every screen edge and recurring gap comes from here, so the
+   * header, nav, cards and copy line up at every size.
+   */
+  --gutter: clamp(1rem, 3vw, 3rem); /* left/right page margin */
+  --gutter-l: max(var(--gutter), env(safe-area-inset-left));
+  --gutter-r: max(var(--gutter), env(safe-area-inset-right));
+  --edge-t: max(clamp(0.875rem, 3svh, 2rem), env(safe-area-inset-top)); /* header offset */
+  --edge-b: max(clamp(0.75rem, 2.4svh, 1.5rem), env(safe-area-inset-bottom)); /* nav offset */
+  --space-caption: clamp(0.75rem, 2.4svh, 1.5rem); /* headline ↔ mono caption */
+  --space-block: clamp(1.5rem, 6svh, 4rem); /* between blocks in a scene */
+  --space-tile: 0.75rem; /* between cards in a row or grid */
+
+  /* Product card: media is inset by --card-pad, so its radius is concentric with the card. */
+  --card-radius: clamp(18px, 2vw, 32px);
+  --card-pad: clamp(0.625rem, 1vw, 1rem);
+}
+
+[data-theme="light"] {
+  --space: #eef0f5;
+  --ink: #0b0d12;
+  --card: #ffffff;
+  --star-rgb: 30, 36, 60;
+  color-scheme: light;
+}
+
+@theme inline {
+  --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+  --font-mono: var(--font-jetbrains-mono), ui-monospace, monospace;
+  --color-space: var(--space);
+  --color-ink: var(--ink);
+  --color-card: var(--card);
+}
+
+html {
+  background: var(--space);
+  scrollbar-width: none;
+}
+
+html::-webkit-scrollbar {
+  display: none;
+}
+
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background: var(--space);
+  color: var(--ink);
+  font-family: var(--font-sans);
+  overscroll-behavior-y: none;
+}
+
+::selection {
+  background: color-mix(in srgb, var(--ink) 85%, transparent);
+  color: var(--space);
+}
+
+:focus-visible {
+  outline: 2px solid color-mix(in srgb, var(--ink) 80%, transparent);
+  outline-offset: 3px;
+}
+
+/*
+ * Testimonials layouts — exactly one is displayed for any viewport:
+ * floating cards around the title (every desktop width), a 2-column grid on tall tablets,
+ * or a swipe row (phones, short tablets, and very short windows).
+ */
+.press-float,
+.press-grid,
+.press-carousel {
+  display: none;
+}
+
+@media (min-width: 1024px) and (min-height: 540px) {
+  .press-float {
+    display: block;
+  }
+}
+
+@media (min-width: 640px) and (max-width: 1023.98px) and (min-height: 920px) {
+  .press-grid {
+    display: flex;
+  }
+}
+
+@media (max-width: 639.98px), (max-height: 539.98px), (max-width: 1023.98px) and (max-height: 919.98px) {
+  .press-carousel {
+    display: flex;
+  }
+}
+
+/* Theme switch: the new theme is revealed by a circle animated from the toggle (see ThemeToggle). */
+::view-transition-old(root),
+::view-transition-new(root) {
+  animation: none;
+  mix-blend-mode: normal;
 }
